@@ -38,6 +38,22 @@ type g struct {
 	goid         int64 // Here it is!
 }
 
+type m struct {
+	g0        *g
+	morebuf   gobuf
+	divmod    uint32
+	procid    uint64
+	gsignal   *g
+	sigmask   uint32
+	tls       [6]uintptr
+	mstartfn  func()
+	curg      *g
+	caughtsig uintptr
+	p         uintptr
+	nextp     uintptr
+	id        int32
+}
+
 // Backdoor access to runtime·getg().
 func getg() uintptr // in goid_go1.5plus{,_arm}.s
 
